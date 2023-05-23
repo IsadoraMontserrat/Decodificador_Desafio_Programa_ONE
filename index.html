@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Decodificador - Desafio Programa ONE</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+<body>
+  <header>
+    <div class="icone-alura">
+      <picture>
+        <source srcset="aluraicon-1x.png" media="(min-width: 768px)">
+        <img src="aluraicon-cell.png" alt="Icone alura">
+      </picture>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <div class="bloco-mensagem">
+        <textarea id="mensagem" class="input-mensagem" required placeholder="Digite seu texto"></textarea>
+        <p class="info">&#128712; Apenas letras minúsculas e sem acento ;)</p>
+      </div>
+
+      <div>
+        <input type="submit" value="Criptografar" class="botao" id="criptografar">
+        <input type="submit" value="Descriptografar" class="botao" id="descriptografar">
+       
+       </div>
+       <button class="botao" id="copiarTexto">Copiar Texto</button>
+
+    </div>
+    <div class="resultado" id="resultado">
+      <picture class="text-icon">
+        <source srcset="text-icon.png" media="(min-width: 768px)">
+        <img src="text-icon-cell.png" alt="Icone texto">
+        <h2 id="topo">Não tem nada aqui!</h2>
+        <p>Digite um texto para descriptografar ou criptografar. Divirta-se!</p>
+      </picture>
+    </div>
+    
+  </main>
+
+  <footer>
+  	<p class="dados">Criado por Isadora Montserrat F. P. - Desafio Programa ONE 2023</p>
+  	<p><a href="https://www.linkedin.com/in/isadora-montserrat-eh/"><img src="linkedin.png" class="linkedin" alt="Página no LinkedIn"></a></p>
+  </footer>
+
+  <script>
+    const botaoCriptografar = document.getElementById('descriptografar');
+    const botaoDescriptografar = document.getElementById('criptografar');
+    const botaoCopiarTexto = document.getElementById('copiarTexto');
+    const resultado = document.getElementById('resultado');
+
+    botaoCriptografar.addEventListener('click', function () {
+      const texto = document.getElementById('mensagem').value;
+      if (!validarTexto(texto)) {
+        alert('Digite apenas letras minúsculas e sem acento!');
+        return;
+      }
+      const textoCriptografado = descriptografar(texto);
+      resultado.textContent = textoCriptografado;
+    });
+
+    botaoDescriptografar.addEventListener('click', function () {
+      const textoCriptografado = document.getElementById('mensagem').value;
+      if (!validarTexto(textoCriptografado)) {
+        alert('Digite apenas letras minúsculas e sem acento!');
+        return;
+      }
+      const textoDescriptografado = criptografar(textoCriptografado);
+      resultado.textContent = textoDescriptografado;
+    });
+
+    botaoCopiarTexto.addEventListener('click', function () {
+      const textoCriptografado = resultado.textContent;
+      navigator.clipboard.writeText(textoCriptografado)
+        .then(() => {
+          alert('Texto copiado para a área de transferência!');
+        })
+        .catch((error) => {
+          console.error('Erro ao copiar texto: ', error);
+        });
+    });
+
+    function validarTexto(texto) {
+      const regex = /^[a-z]+$/; // Apenas letras minúsculas
+      return regex.test(texto);
+    }
+
+    function descriptografar(texto) {
+      let textoCriptografado = '';
+
+      textoCriptografado = texto.replace(/enter/g, 'e');
+      textoCriptografado = textoCriptografado.replace(/imes/g, 'i');
+      textoCriptografado = textoCriptografado.replace(/ai/g, 'a');
+      textoCriptografado = textoCriptografado.replace(/ober/g, 'o');
+      textoCriptografado = textoCriptografado.replace(/ufat/g, 'u');
+
+      return textoCriptografado;
+    }
+
+    function criptografar(textoCriptografado) {
+      let textoDescriptografado = '';
+
+      textoDescriptografado = textoCriptografado.replace(/e/g, 'enter');
+      textoDescriptografado = textoDescriptografado.replace(/i/g, 'imes');
+      textoDescriptografado = textoDescriptografado.replace(/a/g, 'ai');
+      textoDescriptografado = textoDescriptografado.replace(/o/g, 'ober');
+      textoDescriptografado = textoDescriptografado.replace(/u/g, 'ufat');
+
+      return textoDescriptografado;
+    }
+  </script>
+
+</body>
+
+</html>

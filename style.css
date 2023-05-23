@@ -1,0 +1,136 @@
+.icone-alura{
+    max-width: 100%;
+    height: auto;
+    padding: 20px 0;
+}
+
+body{
+    background: white;
+    font-family: "Montserrat";
+}
+
+.bloco-mensagem{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0 0 10%;
+}
+
+.input-mensagem{
+    width: 50%;
+    height: 200px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-color: darkgray;
+    resize: none;
+    padding: 10px;
+    font-size: 30px;
+    color: #0A3871;
+    font-family: "Montserrat";
+}
+
+.input-mensagem::placeholder{
+    color: #0A3871;
+}
+
+.info{
+    margin-top: 5px;
+    color: #90A4AE;
+    font-size: 20px;
+    transition: text-shadow 1s ease-in-out;
+}
+
+.info:hover{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.botao{
+    display: inline-block;
+    width: 20%;
+    padding: 15px 0;
+    margin: 5% 1.5%;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Montserrat";
+
+}
+
+#criptografar{
+    margin-left: 10%;
+    background: #0A3871;
+    border-color: #D8DFE8;
+    color: #D8DFE8;
+}
+
+#descriptografar{
+    background: #D8DFE8;
+    border-color: #0A3871;
+    color: #0A3871;
+}
+#copiarTexto{
+    top: 70%;
+    margin-left: 10%;
+    align-items: flex-start;
+}
+.resultado{
+
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    position: absolute;
+    top: 5%;
+    margin: 0 10% 0 65%;
+    width: 300px;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+    border-color: #0A3871;
+
+}
+
+.text-icon{
+    margin: 50% 10px;
+    text-align: center;
+    font-size: 15px;
+
+} 
+#topo{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .input-mensagem, .info{
+        font-size: 10px;
+    }
+    .botao{
+        font-size: 10px;
+    }
+    .resultado{
+        position: inherit;
+        margin: auto;
+    }
+}
+
+footer{
+
+    margin-top: 10px;
+    background: #0A3871;
+    color: #D8DFE8;
+    text-align: center;
+    padding: 40px;
+    font-weight: bold;
+
+}
+
+.linkedin{
+    width: 30px;
+    height: 30px;
+}
